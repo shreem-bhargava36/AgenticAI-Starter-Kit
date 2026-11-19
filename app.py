@@ -10,6 +10,12 @@ load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 
+try:
+    API_KEY = st.secrets["GEMINI_API_KEY"]
+    MODEL = st.secrets.get("GEMINI_MODEL", MODEL)
+except Exception:
+    pass
+
 st.set_page_config(
     page_title="My AI Agent",
     page_icon="🤖",

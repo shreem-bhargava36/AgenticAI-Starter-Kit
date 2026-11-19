@@ -1,83 +1,92 @@
-# AgenticAI Starter Kit
+# 🤖 Agentic AI Starter Kit
 
-Welcome to **AgenticAI**! Build your first AI agent with Python and the Gemini API.
+A beginner-friendly Python starter kit to build AI agents using Google's Gemini API. It includes a command-line AI agent, a web-based chatbot, and a sample Campus Helper agent.
 
-This starter kit is designed for beginners. You will create Python tools, give your agent a role, and let Gemini decide when to use the tools.
+## ✨ Features
 
-## Project structure
+- 🧠 Gemini-powered AI assistant
+- 💬 Interactive command-line chatbot
+- 🌐 Streamlit-based web interface
+- 🔧 Custom Python tool integration
+- 💭 Conversation history during a chat session
+- 🗑️ Clear chat functionality
+- 🎓 Sample Campus Helper agent
+- 🔐 Environment-variable-based API key management
+
+## 🛠️ Tech Stack
+
+- Python
+- Google Gemini API
+- Google Gen AI SDK
+- Streamlit
+- python-dotenv
+
+## 📁 Project Structure
 
 ```text
-AgenticAI-Starter-Kit/
-├── .env.example
-├── .gitignore
-├── README.md
-├── requirements.txt
+Agentic-AI-Starter-Kit/
+│
+├── app.py
 ├── hello.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+├── .env.example
+│
 ├── starter_code/
 │   └── agent.py
+│
 └── sample/
     └── campus_helper.py
 ```
 
-## 1. Requirements
+## 🚀 Getting Started
 
-- Python 3.10 or newer
-- A Gemini API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
-- VS Code (recommended)
+### 1. Clone the repository
 
-## 2. Open the project
+```bash
+git clone https://github.com/shreem-bhargava36/AgenticAI-Starter-Kit.git
+cd AgenticAI-Starter-Kit
+```
 
-Download the ZIP from GitHub and extract it. In VS Code, choose **File → Open Folder** and open the extracted `AgenticAI-Starter-Kit` folder.
+### 2. Create a virtual environment
 
-Open the VS Code terminal: **Terminal → New Terminal**.
-
-## 3. Create and activate a virtual environment
-
-**Windows (PowerShell):**
+**Windows:**
 
 ```powershell
-py -m venv .venv
-.venv\Scripts\Activate.ps1
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-If PowerShell blocks activation, use Command Prompt:
-
-```bat
-.venv\Scripts\activate.bat
-```
-
-**macOS / Linux:**
+**macOS/Linux:**
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-## 4. Install dependencies
+### 3. Install dependencies
 
 ```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
-## 5. Add your Gemini API key
+### 4. Configure your Gemini API key
 
-1. Make a copy of `.env.example` in the project root.
-2. Rename the copy to `.env`.
-3. Open `.env` and replace the placeholder with your own key.
+Create a `.env` file in the project root using `.env.example` as a template.
 
-Example:
+Add:
 
 ```env
-GEMINI_API_KEY=your_real_api_key_here
-GEMINI_MODEL=gemini-3.8-flash
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+GEMINI_MODEL=YOUR_SUPPORTED_GEMINI_MODEL
 ```
 
-**Never commit or share `.env`.** The `.gitignore` file prevents it from being uploaded. The `.env.example` template is safe to upload because it contains no real key.
+Get an API key from [Google AI Studio](https://aistudio.google.com/apikey).
 
-If the workshop team announces a different model, change `GEMINI_MODEL` in your local `.env` file.
+**Important:** Never upload your `.env` file or expose your API key publicly.
 
-## 6. Test your setup
+## 🧪 Test Gemini API Connection
 
 Run:
 
@@ -85,55 +94,68 @@ Run:
 python hello.py
 ```
 
-You should see a short response from Gemini and a setup-success message. If it fails, check that your key is correct, the Gemini API is enabled for your key, and your internet connection works.
+A successful connection should display a confirmation message.
 
-## 7. Build your own agent
-
-Open:
-
-```text
-starter_code/agent.py
-```
-
-During the workshop, edit the three `TODO` sections:
-
-1. **TODO 1 — Tools:** Write Python function(s) that do a useful task. Add a clear docstring explaining what each tool does.
-2. **TODO 2 — Role:** Tell the agent who it is, what it should do, and how it should answer.
-3. **TODO 3 — Tool list:** Add every function you want Gemini to be able to call to `TOOLS`.
-
-Run your agent from the project root:
+## 💻 Run the Command-Line AI Agent
 
 ```bash
 python starter_code/agent.py
 ```
 
-Type `quit` to stop the agent.
+Start chatting with your Gemini-powered agent.
 
-## 8. Try the sample agent
+Type `exit` to stop the conversation.
 
-The sample campus helper demonstrates two tools: a sample timetable lookup and a sample mess-menu lookup.
+## 🌐 Run the Web Application
+
+Launch the Streamlit chatbot:
+
+```bash
+python -m streamlit run app.py
+```
+
+Open your browser at:
+
+```text
+http://localhost:8501
+```
+
+### Web Application Features
+
+- Interactive chat interface
+- Gemini-generated responses
+- Conversation history
+- Clear chat option
+- Simple and beginner-friendly interface
+
+## 🎓 Run the Sample Campus Helper Agent
 
 ```bash
 python sample/campus_helper.py
 ```
 
-The timetable and menu are demonstration data, not live college information.
+The sample demonstrates how an AI agent can use Python functions as tools to answer campus-related questions.
 
-## Common problems
+**Note:** The timetable and mess menu use sample data, not live college information.
 
-- **`ModuleNotFoundError`:** Activate your virtual environment and run `pip install -r requirements.txt`.
-- **API key missing:** Confirm that your file is named `.env` (not `.env.txt`) and is in the project root.
-- **Invalid API key / permission error:** Create or check your key in Google AI Studio.
-- **Model not found / unavailable:** Ask the workshop team which model is enabled for your API key, then update `GEMINI_MODEL` in `.env`.
-- **PowerShell activation blocked:** Use the Command Prompt activation command shown above.
+## 🔧 Building Your Own AI Agent
 
-## Workshop rules
+To customize the starter agent:
 
-- Change the `TODO` sections in `starter_code/agent.py`.
-- Never upload your API key or `.env` file.
-- Test your agent before presenting or submitting it.
-- Keep your tool focused and useful. Be creative!
+1. Define the agent's role using a system instruction.
+2. Create Python functions for specific tasks.
+3. Register your functions as tools.
+4. Connect the tools to the Gemini model.
+5. Test the agent with different questions.
 
-Happy building!
+## 🔒 Security
 
-**Team AgenticAI ❤️**
+- Store API keys in `.env`.
+- Keep `.env` out of GitHub.
+- Use `.env.example` to document required environment variables.
+- Never hardcode API keys in Python files.
+
+## 🎯 Project Goal
+
+Make learning Agentic AI easier for beginners by providing a simple, working foundation for building AI assistants that can interact with tools and perform useful tasks.
+
